@@ -1,9 +1,11 @@
-import './App.css';
+import Nav from './components/Nav';
+import { GlobalStyle } from './App.style';
 
 function App() {
   return (
     <div className="App">
-      App
+      <GlobalStyle />
+      <Nav />
     </div>
   );
 }
