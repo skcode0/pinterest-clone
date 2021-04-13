@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 16px;
     }
 
+    body{
+        overflow-x: hidden;
+    }
+
     button{
         font-family: inherit;
         outline: none;
