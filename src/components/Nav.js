@@ -8,6 +8,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import CreateIcon from '@material-ui/icons/Create';
 import CallMadeIcon from '@material-ui/icons/CallMade';
 import { Nav, HomeLink, HomeBtn, SearchBarWrapper, StyledSearchBar, ProfileButton, Settings, DropDownMenu, Inbox, InboxSearchBarWrapper, StyledInboxSearchBar, Notifications } from './Nav.style';
+import { Link } from 'react-router-dom';
 
 function Header() {
     const [ dropDownToggle, setDropDownToggle ] = useState(false);
@@ -70,10 +71,12 @@ function Header() {
             </IconButton>
             <Notifications display={notifToggle}>
                 <h3 className="notif-title">Updates</h3>
-                <div className="friend">
-                    <div className="profile-pic">A</div>
-                    <p><span>Aaahh</span> and <span>notabot</span> tried a Pin you've saved <span className="year">1y</span></p>
-                </div>
+                <Link to="/pinterest-clone/page-unavailable" className="link">
+                    <div className="friend">
+                        <div className="profile-pic">A</div>
+                        <p><span>Aaahh</span> and <span>notabot</span> tried a Pin you've saved <span className="year">1y</span></p>
+                    </div>
+                </Link>
             </Notifications>
 
             {/* inbox */}

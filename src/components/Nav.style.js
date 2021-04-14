@@ -76,7 +76,6 @@ export const Notifications = styled.div`
     position: absolute;
     top: 100%;
     right: 0;
-    border: 1px blue solid;
     width: 360px;
     border-radius: 10px;
     z-index: 1000;
@@ -84,7 +83,17 @@ export const Notifications = styled.div`
     box-shadow: -2px 2px 10px #b7b7b7;
     background-color: white;
     overflow-y: auto;
-    /* //!  animtion */
+    animation: up-to-down 0.2s ease-in;
+
+    @keyframes up-to-down{
+        0%{
+            transform: translateY(-2%);
+        }
+
+        100%{
+            transform: translateY(0);
+        }
+    }
 
     .notif-title{
         text-align: center;
@@ -131,6 +140,10 @@ export const Notifications = styled.div`
         color: grey;
     }
 
+    .link{
+        text-decoration: none;
+        color: black;
+    }
 `
 
 // inbox search bar
