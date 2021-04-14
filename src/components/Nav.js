@@ -116,12 +116,13 @@ function Header() {
             </Inbox>
 
             {/* profile */}
-            <IconButton>
-                <ProfileButton>
-                    {/* //! change link to profile */}
-                    <HomeLink to="/pinterest-clone/">u</HomeLink>
-                </ProfileButton>
-            </IconButton>
+            <Link style={{textDecoration: "none", color: "black"}} to="/pinterest-clone/profile">
+                <IconButton>
+                    <ProfileButton>
+                        u
+                    </ProfileButton>
+                </IconButton>
+            </Link>
 
             {/* drop down settings */}
             <Settings>
