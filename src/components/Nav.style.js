@@ -70,6 +70,69 @@ export const StyledSearchBar = styled(SearchBar)`
     }
 `
 
+// notification
+export const Notifications = styled.div`
+    display: ${ props => props.display ? "block" : "none"};
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border: 1px blue solid;
+    width: 360px;
+    border-radius: 10px;
+    z-index: 1000;
+    height: calc(100vh - 73px);
+    box-shadow: -2px 2px 10px #b7b7b7;
+    background-color: white;
+    overflow-y: auto;
+    /* //!  animtion */
+
+    .notif-title{
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .friend{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .friend:hover{
+        background-color: #e4e4e4;
+    }
+
+    .profile-pic{
+        width: 50px;
+        height: 50px;
+        background-color: #e8e8e8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    .friend p{
+        width: 80%;
+    }
+
+    .friend span{
+        font-weight: 500;
+    }
+
+    .year{
+        font-weight: 400 !important;
+        color: grey;
+    }
+
+`
+
 // inbox search bar
 export const InboxSearchBarWrapper = styled(SearchBarWrapper)`
     border: 2px solid #ddd;
@@ -94,7 +157,6 @@ export const StyledInboxSearchBar = styled(StyledSearchBar)`
 // inbox
 export const Inbox = styled.div`
     position: absolute;
-    border: 1px red solid;
     top: 100%;
     right: 0;
     display: ${props => props.display ? "block" : "none"};
@@ -200,12 +262,28 @@ export const DropDownMenu = styled.div`
 
     h3{
         margin: 10px 0;
-        cursor: pointer;
+        cursor: not-allowed;
         padding: 5px 10px;
         border-radius: 5px;
+        color: grey;
     }
 
-    h3:hover{
+    h3:hover, .external-links:hover{
         background-color: #d8d8d8;
+    }
+
+    .external-links{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+        text-decoration: none;
+        color: black;
+
+        h3{
+            margin: 3px 0;
+            color: black;
+            cursor: pointer;
+        }
     }
 `
