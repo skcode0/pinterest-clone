@@ -4,7 +4,6 @@ import SearchBar from './SearchBar';
 
 // nav
 export const Nav = styled.nav`
-    border: 1px red solid;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,11 +32,15 @@ export const HomeLink = styled(Link)`
 
 // home btn
 export const HomeBtn = styled.button`
-    background-color: black;
+    background-color: ${props => props.backgroundColor ? "black" : "transparent"};
     padding: 14px 16px;
-    color: white;
+    color: ${props => props.backgroundColor ? "white" : "black"};;
     font-weight: 700;
     border-radius: 50px;
+
+    &:hover{
+        background-color: ${props => props.backgroundColor ? "black" : "#e8e8e8"};
+    }
 `
 
 // search bar
@@ -63,10 +66,6 @@ export const StyledSearchBar = styled(SearchBar)`
         width: 100%;
         border: none;
         background-color: transparent;
-    }
-
-    button{
-        display: none;
     }
 `
 

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import ImgPin from './ImgPin';
 
 // main
 export const Main = styled.main`
@@ -9,12 +8,10 @@ export const Main = styled.main`
     margin-top: 5px;
 `
 
-// image container
+// image wrapper
 export const ImgWrapper = styled.div`
     width: 90%;
     background-color: lightpink;
     margin: auto;
 `
-
-// image pin
 

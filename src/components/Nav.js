@@ -15,6 +15,8 @@ function Header() {
     const [ inboxToggle, setInboxToggle ] = useState(false);
     const [ notifToggle, setNotifToggle ] = useState(false);
 
+    const [ homeBg, setHomeBg] = useState(true);
+
     function toggleDropDown(){
         setDropDownToggle(!dropDownToggle);
 
@@ -42,18 +44,26 @@ function Header() {
         }
     }
 
+    function disableHomeBg(){
+        setHomeBg(false);
+    }
+
+    function enableHomeBg(){
+        setHomeBg(true);
+    }
+
     return (
         <Nav>
             {/* logo */}
-            <HomeLink to="/pinterest-clone/">
+            <HomeLink onClick={enableHomeBg} to="/pinterest-clone/">
                 <IconButton>
                     <PinterestIcon />
                 </IconButton>
             </HomeLink>
 
             {/* home btn */}
-            <HomeLink to="/pinterest-clone/">
-                <HomeBtn>Home</HomeBtn>
+            <HomeLink onClick={enableHomeBg} to="/pinterest-clone/">
+                <HomeBtn backgroundColor={homeBg}>Home</HomeBtn>
             </HomeLink>
 
             {/* search input */}
@@ -116,7 +126,7 @@ function Header() {
             </Inbox>
 
             {/* profile */}
-            <Link style={{textDecoration: "none", color: "black"}} to="/pinterest-clone/profile">
+            <Link onClick={disableHomeBg} style={{textDecoration: "none", color: "black"}} to="/pinterest-clone/profile">
                 <IconButton>
                     <ProfileButton>
                         u

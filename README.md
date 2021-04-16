@@ -13,5 +13,9 @@
 
 [material-ui](https://material-ui.com/)
 
-<!-- unsplash -->
+[axios](https://www.npmjs.com/package/axios)
+
+[Unsplash](https://unsplash.com/)
+
+[dotenv](https://www.npmjs.com/package/dotenv)
 
