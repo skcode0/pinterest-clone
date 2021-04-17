@@ -19,3 +19,5 @@
 
 [dotenv](https://www.npmjs.com/package/dotenv)
 
+[react-masonry-css](https://www.npmjs.com/package/react-masonry-css)
+

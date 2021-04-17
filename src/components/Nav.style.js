@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
+//! make nav mobile responsive 
+
 // nav
 export const Nav = styled.nav`
     display: flex;

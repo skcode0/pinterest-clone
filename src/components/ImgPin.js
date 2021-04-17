@@ -6,6 +6,7 @@ function ImgPin({imgInfo}){
     return (
         <StyledPin>
             <img src={imgInfo.urls.regular} alt={imgInfo.alt_description} />
+            {/* //! add hover options */}
         </StyledPin>
     )
 }
@@ -21,6 +22,18 @@ export const StyledPin = styled.div`
         width: 100%;
         object-fit: cover;
         border-radius: 20px;
+    }
+
+    @media only screen and (max-width: 1440px) {
+        width: 215px;
+    }
+
+    @media only screen and (max-width: 500px) {
+        width: 120px;
+    }
+
+    @media only screen and (max-width: 375px) {
+        width: 150px;
     }
 `
 
