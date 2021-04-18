@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyledProfile, CreateWrapper, CreateDiv } from './UserProfile.style';
 import IconButton from '@material-ui/core/IconButton'; // gives bubble effect when clicked
-import CreateIcon from '@material-ui/icons/Create';
+import SettingsIcon from '@material-ui/icons/Settings';
 import AddIcon from '@material-ui/icons/Add';
 
 function UserProfile() {
@@ -19,7 +19,7 @@ function UserProfile() {
             <h3 >0 followers · 0 following</h3>
 
             <IconButton style={{cursor: "not-allowed"}}>
-                <CreateIcon style={{fontSize: "24px", fill: "black"}}/>
+                <SettingsIcon style={{fontSize: "24px", fill: "black"}}/>
             </IconButton>
 
             <CreateWrapper>

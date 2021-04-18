@@ -5,7 +5,7 @@ export const StyledProfile = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 14px;
+    margin-top: 70px;
 
     .user-profile{
         font-size: 3rem;

@@ -25,15 +25,43 @@ export const StyledPin = styled.div`
     }
 
     @media only screen and (max-width: 1440px) {
-        width: 215px;
+        width: 240px;
+    }
+
+    @media only screen and (max-width: 1280px) {
+        width: 220px;
+    }
+
+    /* @media only screen and (max-width: 1024px) {
+        width: 220px;
+    } */
+
+    @media only screen and (max-width: 540px) {
+        width: 150px;
     }
 
     @media only screen and (max-width: 500px) {
-        width: 120px;
+        width: 130px;
+    }
+
+    @media only screen and (max-width: 414px) {
+        width: 180px;
     }
 
     @media only screen and (max-width: 375px) {
+        width: 180px;
+    }
+
+    @media only screen and (max-width: 360px) {
+        width: 170px;
+    }
+
+    @media only screen and (max-width: 320px) {
         width: 150px;
+    }
+
+    @media only screen and (max-width: 280px) {
+        width: 130px;
     }
 `
 
