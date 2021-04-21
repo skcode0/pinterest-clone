@@ -3,7 +3,6 @@ import { CreateBoardModalWrapper, CreateBoardOverlay, CreateBoardModal, StyledDe
 import { BoardsInfoContext } from './contexts/BoardsInfoContext';
 import { v4 as uuidv4 } from 'uuid';
 
-
 function CreateBoard({ closeModal, modalClose, shouldEdit, closeEditModal, editId, editName, editIsPrivate }) {
     const [ boardName, setBoardName ] = useState("");
     const [ privateBoard, setPrivateBoard ] = useState(false);

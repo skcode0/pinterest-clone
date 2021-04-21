@@ -6,7 +6,7 @@ export const CreateBoardModalWrapper = styled.div`
 `
 
 export const CreateBoardOverlay = styled.div`
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;
@@ -17,7 +17,7 @@ export const CreateBoardOverlay = styled.div`
 `
 
 export const CreateBoardModal = styled.div`
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -26,6 +26,14 @@ export const CreateBoardModal = styled.div`
     border-radius: 20px;
     z-index: 1000000000;
     width: 25%;
+
+    @media only screen and (max-width: 1024px) {
+        width: 60%;
+    }
+
+    @media only screen and (max-width: 425px) {
+        width: 90%;
+    }
 
     h1{
         font-size: 1.6rem;

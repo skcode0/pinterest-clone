@@ -53,7 +53,7 @@ export const StyledBoard = styled.div`
 `
 
 // !
-export const OverlappedImages = styled.div`
+export const CoverImage = styled.div`
     width: fit-content;
     border-radius: 20px;
     width: 236px;

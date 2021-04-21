@@ -192,7 +192,6 @@ function Header() {
                         <PersonIcon style={{fill: profileToggle && "black"}}/>
                     </IconButton>
                 </Link>
-
             </MobileNavWrapper>
         </>
     )

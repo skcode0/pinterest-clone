@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyledBoardLink, StyledBoard,  OverlappedImages } from './Board.style';
+import { StyledBoardLink, StyledBoard,  CoverImage } from './Board.style';
 import LockIcon from '@material-ui/icons/Lock';
 import CreateIcon from '@material-ui/icons/Create';
 import CreateBoard from './CreateBoard';
@@ -48,11 +48,11 @@ function Board({ boardId, boardName, boardImgs, isPrivate, createdDate }){
             <StyledBoardLink id={boardId} to={`/pinterest-clone/profile/${boardName}`}>
                 <StyledBoard>
                     <LockIcon className="lock-icon" style={{display: isPrivate ? "block" : "none"}}/>
-                    <OverlappedImages>
+                    <CoverImage>
                         {/* //! add images */}
                         <img src="" alt=""/>
                         <StyledBoardLink to="/pinterest-clone/profile"><CreateIcon className="edit-icon" onClick={editBoard}/></StyledBoardLink>
-                    </OverlappedImages>
+                    </CoverImage>
                     
                     <div className="pin-info">
                         <h1>{boardName.length > 17 ? boardName.substr(0, 16) + "..." : boardName}</h1>

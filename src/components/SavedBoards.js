@@ -1,29 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyledBoardsWrapper } from './SavedBoard.style';
 import Board from './Board';
-import { StyledBoardLink, StyledBoard, OverlappedImages } from './Board.style';
+import { StyledBoardLink, StyledBoard, CoverImage } from './Board.style';
 import { BoardsInfoContext } from './contexts/BoardsInfoContext';
 
 
 function SavedBoards() {
     const [ boardsInfo, setBoardsInfo ] = useContext(BoardsInfoContext);
 
+    //default board
+    // ! check logic
+    // const [ allImgs, setAllImgs ] = useState(boardsInfo.reduce((a,b) => a.boardImgs.concat(b.boardImgs), []));
+
     return (
         <div>
             <StyledBoardsWrapper>
                 {/* default board */}
-                <StyledBoardLink to="/pinterest-clone/profile">
+                {/* //! */}
+                <StyledBoardLink to="/pinterest-clone/profile/pins">
                     <StyledBoard>
                         {/* 3 images: width - 157; height - 157;;; width - 78, height -78  */}
                         {/* 5 images: width - 116; height - 155 */}
 
-                        <OverlappedImages>
+                        <CoverImage>
                             <img src="" alt=""/>
-                        </OverlappedImages>
+                        </CoverImage>
                         <div className="pin-info">
                             <h1>All Pins</h1>
                             {/* //! change pin number via state */}
-                            <p>5 Pins</p>
+                            <p>0 Pins</p>
                         </div>
                     </StyledBoard>
                 </StyledBoardLink>

@@ -16,6 +16,8 @@ export const Nav = styled.nav`
     left: 0;
     right: 0;
     background-color: white;
+    z-index: 10000000;
+
 
     .MuiSvgIcon-root{
         font-size: 28px;
@@ -125,6 +127,7 @@ export const MobileNavWrapper = styled.div`
         width: fit-content;
         background-color: white;
         border-radius: 50px;
+        z-index: 10000000;
     }
 
 `
