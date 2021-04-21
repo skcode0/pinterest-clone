@@ -41,6 +41,8 @@ export const CreateDiv = styled.div`
     border-radius: 10px;
     padding: 10px;
     margin-top: 5px;
+    z-index: 10;
+    background-color: white;
 
     & > *{
         margin: 5px;
@@ -55,8 +57,12 @@ export const CreateDiv = styled.div`
         border-radius: 10px;
     }
 
-    h3:hover{
-        background-color: #e8e8e8;
+    .pin:hover{
         cursor: not-allowed;
+    }
+
+    .board:hover{
+        cursor: pointer;
+        background-color: #e8e8e8;
     }
 `

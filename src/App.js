@@ -9,26 +9,31 @@ import { SearchInputProvider } from './components/contexts/SearchInputContext';
 import { ImagePinsProvider } from './components/contexts/ImagePinsContext';
 import MobileNotif from './components/MobileNotif';
 import MobileInbox from './components/MobileInbox';
+import { BoardsInfoProvider } from './components/contexts/BoardsInfoContext';
+import BoardDetails from './components/BoardDetails';
 
 function App() {
   return (
-    <SearchInputProvider>
-      <ImagePinsProvider>
-        <div className="App">
-          <GlobalStyle />
-          <Router>
-            <Nav />
-            <Switch>
-              <Route exact path= {["/", "/pinterest-clone/"]} component={HomeBoard} />
-              <Route exact path="/pinterest-clone/profile" component={UserProfile} />
-              <Route exact path="/pinterest-clone/page-unavailable" component={PageUnavailable} />
-              <Route exact path="/pinterest-clone/notifications" component={MobileNotif} />
-              <Route exact path="/pinterest-clone/inbox" component={MobileInbox} />
-            </Switch>
-          </Router>
-        </div>
-      </ImagePinsProvider>
-    </SearchInputProvider>
+    <BoardsInfoProvider>
+      <SearchInputProvider>
+        <ImagePinsProvider>
+          <div className="App">
+            <GlobalStyle />
+            <Router>
+              <Nav />
+              <Switch>
+                <Route exact path= {["/", "/pinterest-clone/"]} component={HomeBoard} />
+                <Route exact path="/pinterest-clone/profile" component={UserProfile} />
+                <Route exact path="/pinterest-clone/profile/:name" component={BoardDetails} />
+                <Route exact path="/pinterest-clone/page-unavailable" component={PageUnavailable} />
+                <Route exact path="/pinterest-clone/notifications" component={MobileNotif} />
+                <Route exact path="/pinterest-clone/inbox" component={MobileInbox} />
+              </Switch>
+            </Router>
+          </div>
+        </ImagePinsProvider>
+      </SearchInputProvider>
+    </BoardsInfoProvider>
   );
 }
 
