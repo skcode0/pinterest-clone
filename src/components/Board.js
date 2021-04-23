@@ -44,13 +44,14 @@ function Board({ boardId, boardName, boardImgs, isPrivate, createdDate }){
 
     return (
         <>
-        {/*  */}
             <StyledBoardLink id={boardId} to={`/pinterest-clone/profile/${boardName}`}>
                 <StyledBoard>
                     <LockIcon className="lock-icon" style={{display: isPrivate ? "block" : "none"}}/>
                     <CoverImage>
-                        {/* //! add images */}
-                        <img src={boardImgs[0]} alt={boardImgs[0]}/>
+                        {
+                            boardImgs.length ? 
+                            <img src={boardImgs[0].urls.regular} alt={ boardImgs[0].urls.regular} /> : ""
+                        }
                         <StyledBoardLink to="/pinterest-clone/profile"><CreateIcon className="edit-icon" onClick={editBoard}/></StyledBoardLink>
                     </CoverImage>
                     

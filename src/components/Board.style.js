@@ -52,7 +52,6 @@ export const StyledBoard = styled.div`
     }
 `
 
-// !
 export const CoverImage = styled.div`
     width: fit-content;
     border-radius: 20px;
@@ -61,8 +60,11 @@ export const CoverImage = styled.div`
     position: relative;
     background-color: #e6e6e6;
 
+    
     img{
         width: 100%;
+        height: 100%;
+        border-radius: 20px;
         object-fit: cover;
     }
 

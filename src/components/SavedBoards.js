@@ -19,9 +19,6 @@ function SavedBoards() {
                 {/* //! */}
                 <StyledBoardLink to="/pinterest-clone/profile/pins">
                     <StyledBoard>
-                        {/* 3 images: width - 157; height - 157;;; width - 78, height -78  */}
-                        {/* 5 images: width - 116; height - 155 */}
-
                         <CoverImage>
                             <img src="" alt=""/>
                         </CoverImage>
