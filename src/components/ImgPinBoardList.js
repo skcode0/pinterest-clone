@@ -6,7 +6,7 @@ import { BoardsInfoContext } from './contexts/BoardsInfoContext';
 
 function ImgPinBoardList({boardProps, imgInfo}) {
     const [boardsInfo, setBoardsInfo] = useContext(BoardsInfoContext);
-    const [alreadySaved, setAlreadySaved] = useState(false);
+    const [alreadySaved, setAlreadySaved] = useState(boardProps.boardImgs.some(imgObj => imgObj.id === imgInfo.id));
 
     const alreadySavedStyle = {
         backgroundColor: "#b8b8b8"

@@ -21,8 +21,8 @@ function ImgPin({imgInfo}){
 
             {/* hover modal */}
             <div className="add-to-board-container">
-                <div className="add-to-board">
-                    <div className="board-drop-down" onClick={toggleBoardList}>
+                <div className="add-to-board" onClick={toggleBoardList}>
+                    <div className="board-drop-down" >
                         <h1>Add To Board</h1>
                         <ExpandMoreIcon />
                     </div>
