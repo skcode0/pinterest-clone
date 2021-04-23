@@ -1,4 +1,5 @@
 import React, { useState, createContext } from 'react';
+import testImg from '../vincent-ledvina-CJrYFOQCT8w-unsplash.jpg';
 
 export const ImagePinsContext = createContext();
 

@@ -50,7 +50,7 @@ function Board({ boardId, boardName, boardImgs, isPrivate, createdDate }){
                     <LockIcon className="lock-icon" style={{display: isPrivate ? "block" : "none"}}/>
                     <CoverImage>
                         {/* //! add images */}
-                        <img src="" alt=""/>
+                        <img src={boardImgs[0]} alt={boardImgs[0]}/>
                         <StyledBoardLink to="/pinterest-clone/profile"><CreateIcon className="edit-icon" onClick={editBoard}/></StyledBoardLink>
                     </CoverImage>
                     
