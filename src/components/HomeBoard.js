@@ -7,7 +7,7 @@ import Masonry from 'react-masonry-css';
 require('dotenv').config();
 
 
-function HomeBoard() {
+function HomeBoard({forBoard, filteredboardImgs}) {
     const [images, setImages] = useContext(ImagePinsContext);
 
     //ES6 ver. of Durstenfeld shuffle (optimized version of Fisher-Yates)
@@ -40,7 +40,9 @@ function HomeBoard() {
             setImages(shuffle(response.data));
         }
         // !
-        getDefaultImgs();
+        if(!forBoard){
+            getDefaultImgs();
+        }
     }, [])
 
 
@@ -61,6 +63,8 @@ function HomeBoard() {
                     columnClassName="my-masonry-grid_column"
                 >
                     {
+                        forBoard ? 
+                        filteredboardImgs.map(pin => <ImgPin forBoard={true} imgInfo={pin} key={pin.id}/>) :
                         images.map(image => <ImgPin imgInfo={image} key={image.id} />)
                     }
                 </Masonry>

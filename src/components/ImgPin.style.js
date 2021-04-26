@@ -5,18 +5,16 @@ export const StyledPin = styled.div`
     width: 236px;
     display: flex;
     align-items: center;
-    cursor: zoom-in;
     position: relative;
-
-/* //! */
-    :hover{
-        background-color: black;
-    }
 
     img{
         width: 100%;
         object-fit: cover;
         border-radius: 20px;
+    }
+
+    .img-link{
+        cursor: zoom-in;
     }
 
         /* modal board list */
@@ -53,7 +51,6 @@ export const StyledPin = styled.div`
         color: white;
     }
 
-/* //! */
     .modal-board-list-container{
         position: absolute;
         background-color: white;

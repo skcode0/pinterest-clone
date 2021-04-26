@@ -11,6 +11,7 @@ import MobileNotif from './components/MobileNotif';
 import MobileInbox from './components/MobileInbox';
 import { BoardsInfoProvider } from './components/contexts/BoardsInfoContext';
 import BoardDetails from './components/BoardDetails';
+import ImgPinDetails from './components/ImgPinDetails';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Nav />
               <Switch>
                 <Route exact path= {["/", "/pinterest-clone/"]} component={HomeBoard} />
+                <Route exact path="/pinterest-clone/pin/:id" component={ImgPinDetails} />
                 <Route exact path="/pinterest-clone/profile" component={UserProfile} />
                 <Route exact path="/pinterest-clone/profile/:name" component={BoardDetails} />
                 <Route exact path="/pinterest-clone/page-unavailable" component={PageUnavailable} />

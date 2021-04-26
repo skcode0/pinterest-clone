@@ -3,6 +3,7 @@ import { StyledPin } from './ImgPin.style';
 import ImgPinBoardList from './ImgPinBoardList';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { BoardsInfoContext } from './contexts/BoardsInfoContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -17,7 +18,9 @@ function ImgPin({imgInfo}){
 
     return (
         <StyledPin>
-            <img src={imgInfo.urls.regular} alt={imgInfo.alt_description} />
+            <Link className="img-link" to={`/pinterest-clone/pin/${imgInfo.id}`}>
+                <img src={imgInfo.urls.regular} alt={imgInfo.alt_description} />
+            </Link>
 
             {/* hover modal */}
             <div className="add-to-board-container">

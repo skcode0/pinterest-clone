@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import LockIcon from '@material-ui/icons/Lock';
 import { StyledBoardList } from './ImgPinBoardList.style';
 import { BoardsInfoContext } from './contexts/BoardsInfoContext';
@@ -7,6 +7,10 @@ import { BoardsInfoContext } from './contexts/BoardsInfoContext';
 function ImgPinBoardList({boardProps, imgInfo}) {
     const [boardsInfo, setBoardsInfo] = useContext(BoardsInfoContext);
     const [alreadySaved, setAlreadySaved] = useState(boardProps.boardImgs.some(imgObj => imgObj.id === imgInfo.id));
+
+    useEffect(() =>{
+        setAlreadySaved(boardProps.boardImgs.some(imgObj => imgObj.id === imgInfo.id));
+    }, [boardProps.boardImgs.length])
 
     const alreadySavedStyle = {
         backgroundColor: "#b8b8b8"

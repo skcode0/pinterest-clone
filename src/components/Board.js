@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyledBoardLink, StyledBoard,  CoverImage } from './Board.style';
 import LockIcon from '@material-ui/icons/Lock';
 import CreateIcon from '@material-ui/icons/Create';
 import CreateBoard from './CreateBoard';
-import BoardDetails from './BoardDetails';
 
 
 function Board({ boardId, boardName, boardImgs, isPrivate, createdDate }){
@@ -44,7 +43,10 @@ function Board({ boardId, boardName, boardImgs, isPrivate, createdDate }){
 
     return (
         <>
-            <StyledBoardLink id={boardId} to={`/pinterest-clone/profile/${boardName}`}>
+            <StyledBoardLink id={boardId} to={{
+                pathname: `/pinterest-clone/profile/${boardName}`,
+                boardId: boardId
+            }}>
                 <StyledBoard>
                     <LockIcon className="lock-icon" style={{display: isPrivate ? "block" : "none"}}/>
                     <CoverImage>
@@ -68,7 +70,6 @@ function Board({ boardId, boardName, boardImgs, isPrivate, createdDate }){
                     <CreateBoard 
                         closeEditModal={closeEditModal} 
                         shouldEdit={true} 
-                        filteredBoard={""}
                         editId={boardId}
                         editName={boardName}
                         editIsPrivate={isPrivate}
