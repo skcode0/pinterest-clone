@@ -39,7 +39,7 @@ function ImgPin({imgInfo}){
                         <div className="board-list">
                             {
                                 boardsInfo.map(board =>
-                                    <ImgPinBoardList boardProps={board} imgInfo={imgInfo} key={board.boardid}/>
+                                    <ImgPinBoardList boardProps={board} imgInfo={imgInfo} key={board.boardId}/>
                                 )
                             }
                         </div>

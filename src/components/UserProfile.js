@@ -59,7 +59,7 @@ function UserProfile() {
             {
                 boardCreate && <CreateBoard closeModal={closeModal} modalClose={modalClose} />
             }
-\        </>
+        </>
     )
 }
 

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledBoardsWrapper = styled.div`
-    background-color: lightblue;
     display: grid;
     justify-items: center;
     align-items: center;

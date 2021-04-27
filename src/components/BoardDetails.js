@@ -7,8 +7,6 @@ import { StyledBoardDetailsWrapper, StyledBoardHeader, StyledSecret, StyledH1 } 
 import CreateBoard from './CreateBoard';
 
 function BoardDetails(props) {
-    console.log(props);
-
     const [boardsInfo, setBoardsInfo] = useContext(BoardsInfoContext);
 
     const [ edit, setEdit ] = useState(false);
@@ -31,7 +29,7 @@ function BoardDetails(props) {
                 <>
                     <StyledBoardDetailsWrapper>
                     <StyledBoardHeader>
-                        <h1>{filteredBoard.boardName}</h1>
+                        <h1>{filteredBoard.boardName.length <= 10 ? filteredBoard.boardName : filteredBoard.boardName.substring(0, 10) + "..."}</h1>
                         <EditIcon className="board-edit" onClick={editBoard}/>
                     </StyledBoardHeader>
                     {

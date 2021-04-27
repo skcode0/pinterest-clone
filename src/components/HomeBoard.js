@@ -7,7 +7,7 @@ import Masonry from 'react-masonry-css';
 require('dotenv').config();
 
 
-function HomeBoard({forBoard, filteredboardImgs}) {
+function HomeBoard({forBoard, filteredboardImgs, randomizeImgs}) {
     const [images, setImages] = useContext(ImagePinsContext);
 
     //ES6 ver. of Durstenfeld shuffle (optimized version of Fisher-Yates)
@@ -19,32 +19,22 @@ function HomeBoard({forBoard, filteredboardImgs}) {
         return arr;
     }
 
-    // function chooseOrderBy(){
-    //     let randomNum = Math.floor(Math.random() * 3);
-    //     switch(randomNum){
-    //         case 2: 
-    //             return "popular";
-    //         case 1:
-    //             return "oldest";
-    //         case 0:
-    //         default:
-    //             return "latest"
-    //     }
-    // }
-    // &order_by=${chooseOrderBy()}
-
     useEffect(() =>{
         async function getDefaultImgs(){
+            // get default images when page opened
             const response = await axios.get(`https://api.unsplash.com/photos?client_id=${process.env.REACT_APP_API_KEY}&per_page=30`);
             // return array of 30 images 
             setImages(shuffle(response.data));
         }
-        // !
+
         if(!forBoard){
             getDefaultImgs();
         }
     }, [])
 
+    if(randomizeImgs){
+        setImages(shuffle(images));
+    }
 
     const breakpointColumnsObj = {
         default: 7,

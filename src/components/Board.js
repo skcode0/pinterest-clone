@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { StyledBoardLink, StyledBoard,  CoverImage } from './Board.style';
 import LockIcon from '@material-ui/icons/Lock';
 import CreateIcon from '@material-ui/icons/Create';
