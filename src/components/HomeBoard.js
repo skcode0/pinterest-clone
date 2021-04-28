@@ -4,11 +4,16 @@ import ImgPin from './ImgPin';
 import { ImagePinsContext } from './contexts/ImagePinsContext';
 import axios from 'axios';
 import Masonry from 'react-masonry-css';
+import { CachedImgsContext } from './contexts/CachedImgsContext';
 require('dotenv').config();
 
 
-function HomeBoard({forBoard, filteredboardImgs, randomizeImgs}) {
+function HomeBoard(props) {
+    console.log(props)
+    let {forBoard, filteredboardImgs, randomizeImgs} = props;
     const [images, setImages] = useContext(ImagePinsContext);
+    const [cachedImages, setCachedImages] = useContext(CachedImgsContext);
+
 
     //ES6 ver. of Durstenfeld shuffle (optimized version of Fisher-Yates)
     function shuffle(arr){
@@ -28,14 +33,21 @@ function HomeBoard({forBoard, filteredboardImgs, randomizeImgs}) {
         }
 
         if(!forBoard){
-            getDefaultImgs();
+            if(!props.location.fromSearch){
+                getDefaultImgs();
+            }
         }
-    }, [])
+    }, []);
 
-    if(randomizeImgs){
-        setImages(shuffle(images));
-    }
 
+    images.forEach(img => {
+        // if cachedImages doesn't have image, add it
+        let cachedIds = cachedImages.map(cachedImg => cachedImg.id);
+        if(!cachedIds.includes(img.id)){
+            setCachedImages(cachedImages.concat(img));
+        }
+    })
+    
     const breakpointColumnsObj = {
         default: 7,
         1440: 5,
@@ -55,12 +67,18 @@ function HomeBoard({forBoard, filteredboardImgs, randomizeImgs}) {
                     {
                         forBoard ? 
                         filteredboardImgs.map(pin => <ImgPin forBoard={true} imgInfo={pin} key={pin.id}/>) :
-                        images.map(image => <ImgPin imgInfo={image} key={image.id} />)
+                        images.map(image => <ImgPin imgInfo={image} key={image.id} shuffle={shuffle} randomizeImgs={randomizeImgs} images={images} setImages={setImages}/>)
                     }
                 </Masonry>
             </ImgWrapper>
         </Main>
     )
+}
+
+HomeBoard.defaultProps = {
+    location: {
+        fromSearch: false
+    }
 }
 
 export default HomeBoard

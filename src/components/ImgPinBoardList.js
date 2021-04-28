@@ -59,7 +59,6 @@ function ImgPinBoardList({boardProps, imgInfo}) {
 
     return (
         <StyledBoardList>
-             {/* <div className="board-info-container" onClick={addPinToBoard}></div> */}
             <div className="board-info-container" id={boardProps.boardId} onClick={addPinToBoard}>
                 <div className="board-info">
                     <img className="board-info-img" src={boardProps.boardImgs.length ? boardProps.boardImgs[0].urls.regular : "#"} alt={boardProps.boardImgs.length && boardProps.boardImgs[0].urls.regular}/>

@@ -3,7 +3,7 @@
 [Live Demo](https://skcode0.github.io/pinterest-clone/)
 
 
-### Resources
+### Resources and References
 
 [pinterest](https://www.pinterest.com/)
 

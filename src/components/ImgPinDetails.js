@@ -1,15 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 import { StyledImgPinDetailsWrapper, StyledImg, StyledOtherImgs } from './ImgPinDetails.style';
-import { ImagePinsContext } from './contexts/ImagePinsContext';
+import { CachedImgsContext } from './contexts/CachedImgsContext';
 import { BoardsInfoContext } from './contexts/BoardsInfoContext';
 import ImgPinBoardList from './ImgPinBoardList';
 import HomeBoard from './HomeBoard';
 
 function ImgPinDetails({ match }) {
-    const [ images, setImages ] = useContext(ImagePinsContext);
+    const [cachedImages, setCachedImages] = useContext(CachedImgsContext);
     const [boardsInfo, setBoardsInfo] = useContext(BoardsInfoContext);
 
-    let filteredPin = images.filter(img => img.id === match.params.id)[0];
+    let filteredPin = cachedImages.filter(img => img.id === match.params.id)[0];
+
+    // make the page scroll to top when another image clicked
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     return (
         <>

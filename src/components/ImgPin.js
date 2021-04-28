@@ -5,9 +5,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { BoardsInfoContext } from './contexts/BoardsInfoContext';
 import { Link } from 'react-router-dom';
 
-
-
-function ImgPin({imgInfo}){
+function ImgPin({imgInfo, randomizeImgs, shuffle, images, setImages}){
     const [boardsInfo, setBoardsInfo] = useContext(BoardsInfoContext);
     const [showModal, setShowModal] = useState(false);
 
@@ -16,9 +14,16 @@ function ImgPin({imgInfo}){
         setShowModal(!showModal);
     }
 
+    // in imgpindetails, shuffle img when other pins clicked
+    function shuffleImgPins(){
+        if(randomizeImgs){
+            setImages(shuffle(images));
+        }
+    }
+
     return (
         <StyledPin>
-            <Link className="img-link" to={`/pinterest-clone/pin/${imgInfo.id}`}>
+            <Link className="img-link" to={`/pinterest-clone/pin/${imgInfo.id}`} onClick={shuffleImgPins}>
                 <img src={imgInfo.urls.regular} alt={imgInfo.alt_description} />
             </Link>
 

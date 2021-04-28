@@ -7,6 +7,7 @@ import { StyledBoardDetailsWrapper, StyledBoardHeader, StyledSecret, StyledH1 } 
 import CreateBoard from './CreateBoard';
 
 function BoardDetails(props) {
+    console.log(props)
     const [boardsInfo, setBoardsInfo] = useContext(BoardsInfoContext);
 
     const [ edit, setEdit ] = useState(false);
@@ -20,7 +21,13 @@ function BoardDetails(props) {
         setEdit(false);
     }
 
-    let filteredBoard = boardsInfo.filter(board => board.boardId === props.location.boardId)[0];
+    let filteredBoard
+    if(props.location.boardId){
+        filteredBoard = boardsInfo.filter(board => board.boardId === props.location.boardId)[0];
+    }
+    else{
+        filteredBoard = boardsInfo.filter(board => board.boardName === props.match.params.name)[0];
+    }
 
     return (
         <>
@@ -45,7 +52,6 @@ function BoardDetails(props) {
                     <HomeBoard forBoard={true} filteredboardImgs={filteredBoard.boardImgs}/>
                 </StyledBoardDetailsWrapper>
 
-
                 {
                     edit && 
                         <CreateBoard 
@@ -56,7 +62,7 @@ function BoardDetails(props) {
                             editIsPrivate={filteredBoard.isPrivate}
                         />
                 }
-            </>
+                </>
             }
         </>
     )

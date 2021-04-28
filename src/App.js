@@ -12,27 +12,30 @@ import MobileInbox from './components/MobileInbox';
 import { BoardsInfoProvider } from './components/contexts/BoardsInfoContext';
 import BoardDetails from './components/BoardDetails';
 import ImgPinDetails from './components/ImgPinDetails';
+import { CachedImgsProvider } from './components/contexts/CachedImgsContext';
 
 function App() {
   return (
     <BoardsInfoProvider>
       <SearchInputProvider>
         <ImagePinsProvider>
-          <div className="App">
-            <GlobalStyle />
-            <Router>
-              <Nav />
-              <Switch>
-                <Route exact path= {["/", "/pinterest-clone/"]} component={HomeBoard} />
-                <Route exact path="/pinterest-clone/pin/:id" component={ImgPinDetails} />
-                <Route exact path="/pinterest-clone/profile" component={UserProfile} />
-                <Route exact path="/pinterest-clone/profile/:name" component={BoardDetails} />
-                <Route exact path="/pinterest-clone/page-unavailable" component={PageUnavailable} />
-                <Route exact path="/pinterest-clone/notifications" component={MobileNotif} />
-                <Route exact path="/pinterest-clone/inbox" component={MobileInbox} />
-              </Switch>
-            </Router>
-          </div>
+          <CachedImgsProvider>
+            <div className="App">
+              <GlobalStyle />
+              <Router>
+                <Nav />
+                <Switch>
+                  <Route exact path= {["/", "/pinterest-clone/"]} component={HomeBoard} />
+                  <Route exact path="/pinterest-clone/pin/:id" component={ImgPinDetails} />
+                  <Route exact path="/pinterest-clone/profile" component={UserProfile} />
+                  <Route exact path="/pinterest-clone/profile/:name" component={BoardDetails} />
+                  <Route exact path="/pinterest-clone/page-unavailable" component={PageUnavailable} />
+                  <Route exact path="/pinterest-clone/notifications" component={MobileNotif} />
+                  <Route exact path="/pinterest-clone/inbox" component={MobileInbox} />
+                </Switch>
+              </Router>
+            </div>
+          </CachedImgsProvider>
         </ImagePinsProvider>
       </SearchInputProvider>
     </BoardsInfoProvider>

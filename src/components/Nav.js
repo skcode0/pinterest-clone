@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PinterestIcon from '@material-ui/icons/Pinterest';
 import IconButton from '@material-ui/core/IconButton'; // gives bubble effect when clicked
 import SearchIcon from '@material-ui/icons/Search';
@@ -11,8 +11,14 @@ import { Link } from 'react-router-dom';
 import Notifications from './Notifications';
 import Inbox from './Inbox';
 import DropDownSettings from './DropDownSettings';
+import { ImagePinsContext } from './contexts/ImagePinsContext';
+import axios from 'axios';
+require('dotenv').config();
 
 function Header() {
+    const [images, setImages] = useContext(ImagePinsContext);
+
+
     const [ notifToggle, setNotifToggle ] = useState(false);
     const [ inboxToggle, setInboxToggle ] = useState(false);
     const [ dropDownToggle, setDropDownToggle ] = useState(false);
@@ -101,6 +107,26 @@ function Header() {
         setNotifToggle(false);
         setInboxToggle(false);
         setProfileToggle(false);
+
+        // get default imgs
+        getDefaultHomeImgs();
+    }
+
+    //ES6 ver. of Durstenfeld shuffle (optimized version of Fisher-Yates)
+    function shuffle(arr){
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    //call default home images
+    async function getDefaultHomeImgs(){
+        // get default images when page opened
+        const response = await axios.get(`https://api.unsplash.com/photos?client_id=${process.env.REACT_APP_API_KEY}&per_page=30`);
+        // return array of 30 images 
+        setImages(shuffle(response.data));
     }
 
     return (

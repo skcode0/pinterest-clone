@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyledSearchBar } from './Nav.style';
 import { SearchInputContext } from './contexts/SearchInputContext';
 import { ImagePinsContext } from './contexts/ImagePinsContext';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 require('dotenv').config();
 
 function SearchBar({ className, placeholder}) {
+
     const [input, setInput] = useContext(SearchInputContext);
     const [images, setImages] = useContext(ImagePinsContext);
+    const [ submit, setSubmit ] = useState(false);
 
     //ES6 ver. of Durstenfeld shuffle (optimized version of Fisher-Yates)
     function shuffle(arr){
@@ -28,12 +31,32 @@ function SearchBar({ className, placeholder}) {
         e.preventDefault();
         getImages(input);
         setInput("");
+        setSubmit(true);
+    }
+
+    function handleChange(e){
+        if(submit){
+            setSubmit(false);
+        }
+        setInput(e.target.value);
     }
 
     return (
-        <form className={className} onSubmit={handleSubmit}>
-            <input type="text" placeholder={placeholder} value={input} onChange={e => setInput(e.target.value)}/>
-        </form>
+        <>
+            <form className={className} onSubmit={handleSubmit}>
+                <input type="text" placeholder={placeholder} value={input} onChange={handleChange}/>
+            </form>
+            {
+                submit &&
+                <Redirect to={{
+                pathname: "/pinterest-clone/",
+                search: input,
+                fromSearch: true
+                }}
+            />
+            }
+            
+        </>
     )
 }
 
