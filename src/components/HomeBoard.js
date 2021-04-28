@@ -9,7 +9,6 @@ require('dotenv').config();
 
 
 function HomeBoard(props) {
-    console.log(props)
     let {forBoard, filteredboardImgs, randomizeImgs} = props;
     const [images, setImages] = useContext(ImagePinsContext);
     const [cachedImages, setCachedImages] = useContext(CachedImgsContext);

@@ -7,7 +7,6 @@ import { StyledBoardDetailsWrapper, StyledBoardHeader, StyledSecret, StyledH1 } 
 import CreateBoard from './CreateBoard';
 
 function BoardDetails(props) {
-    console.log(props)
     const [boardsInfo, setBoardsInfo] = useContext(BoardsInfoContext);
 
     const [ edit, setEdit ] = useState(false);
